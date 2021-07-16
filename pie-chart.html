@@ -4,11 +4,10 @@
 <head>
     <title>Pie Chart</title>
     <link href="styles.css" rel="stylesheet">
-    <script src="js/data.js"></script>
+    <script src="js/dataset-full.js"></script>
     <script src="js/flotr2.min.js"></script>
-    <style>
-
-    </style>
+    <!-- Add icon library -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 
 <body>
@@ -45,40 +44,48 @@
     </div>
 
     <h1>Covid-19 Statistic in Malaysia</h1>
+
     <div id='Visualization'>
-        <div id='container' style="width:600px;height:500px;float:left;"></div>
+        <div id='active-case'></div>
+        <div id='confirmed-case'></div>
+        <div id='recovered-case'></div>
+        <div id='fatal-case'></div>
     </div>
 
-    <script>
+    <script id="script-active">
         (function basic_pie(container) {
-            var graph;
+            var kelantan = dataset[0][0];
+            var sarawak = dataset[1][0];
+            var selangor = dataset[2][0];
+            var terengganu = dataset[3][0];
+            var melaka = dataset[4][0];
 
             graph = Flotr.draw(container, [{
-                    data: active,
-                    label: "Active",
-                    color: "orange"
+                    data: kelantan[0],
+                    label: "Kelantan",
+                    color: "brown"
                 },
                 {
-                    data: confirmed,
-                    label: "Confirmed",
-                    color: "blue"
+                    data: sarawak[0],
+                    label: "Sarawak",
+                    color: "#4169e1", // royalblue
                 },
                 {
-                    data: recovered,
-                    label: "Recovered",
-                    pie: {
-                        //explode: 50
-                    },
+                    data: selangor[0],
+                    label: "Selangor",
+                    color: "lightgreen"
+                },
+                {
+                    data: terengganu[0],
+                    label: "Terengganu",
+                    color: "magenta"
+                }, {
+                    data: melaka[0],
+                    label: "Melaka",
                     color: "green"
                 },
-                {
-                    data: fatal,
-                    label: "Fatal",
-                    color: "red"
-                }
             ], {
-                HtmlText: false,
-                title: "Basic Pie Chart",
+                title: "Active Cases",
                 grid: {
                     verticalLines: false,
                     horizontalLines: false
@@ -90,18 +97,199 @@
                     showLabels: false
                 },
                 pie: {
-                    show: true,
-                    explode: 6
+                    show: true
                 },
                 mouse: {
-                    track: true
+                    track: true,
+                    sensibility: 10,
+                    trackDecimals: 0
                 },
                 legend: {
                     position: 'ne',
                     backgroundColor: '#D2E8FF'
                 }
             });
-        })(document.getElementById("container"));
+        })(document.getElementById("active-case"));
+    </script>
+
+    <script  id="script-confirmed">
+        (function basic_pie(container) {
+            var kelantan = dataset[0][0];
+            var sarawak = dataset[1][0];
+            var selangor = dataset[2][0];
+            var terengganu = dataset[3][0];
+            var melaka = dataset[4][0];
+
+            graph = Flotr.draw(container, [{
+                    data: kelantan[1],
+                    label: "Kelantan",
+                    color: "brown"
+                },
+                {
+                    data: sarawak[1],
+                    label: "Sarawak",
+                    color: "#4169e1", // royalblue
+                },
+                {
+                    data: selangor[1],
+                    label: "Selangor",
+                    color: "lightgreen"
+                },
+                {
+                    data: terengganu[1],
+                    label: "Terengganu",
+                    color: "magenta"
+                }, {
+                    data: melaka[1],
+                    label: "Melaka",
+                    color: "green"
+                },
+            ], {
+                title: "Confirmed Cases",
+                grid: {
+                    verticalLines: false,
+                    horizontalLines: false
+                },
+                xaxis: {
+                    showLabels: false
+                },
+                yaxis: {
+                    showLabels: false
+                },
+                pie: {
+                    show: true
+                },
+                mouse: {
+                    track: true,
+                    sensibility: 10,
+                    trackDecimals: 0
+                },
+                legend: {
+                    position: 'ne',
+                    backgroundColor: '#D2E8FF'
+                }
+            });
+        })(document.getElementById("confirmed-case"));
+    </script>
+
+    <script  id="script-recovered">
+        (function basic_pie(container) {
+            var kelantan = dataset[0][0];
+            var sarawak = dataset[1][0];
+            var selangor = dataset[2][0];
+            var terengganu = dataset[3][0];
+            var melaka = dataset[4][0];
+
+            graph = Flotr.draw(container, [{
+                    data: kelantan[2],
+                    label: "Kelantan",
+                    color: "brown"
+                },
+                {
+                    data: sarawak[2],
+                    label: "Sarawak",
+                    color: "#4169e1", // royalblue
+                },
+                {
+                    data: selangor[2],
+                    label: "Selangor",
+                    color: "lightgreen"
+                },
+                {
+                    data: terengganu[2],
+                    label: "Terengganu",
+                    color: "magenta"
+                }, {
+                    data: melaka[2],
+                    label: "Melaka",
+                    color: "green"
+                },
+            ], {
+                title: "Recovered Cases",
+                grid: {
+                    verticalLines: false,
+                    horizontalLines: false
+                },
+                xaxis: {
+                    showLabels: false
+                },
+                yaxis: {
+                    showLabels: false
+                },
+                pie: {
+                    show: true
+                },
+                mouse: {
+                    track: true,
+                    sensibility: 10,
+                    trackDecimals: 0
+                },
+                legend: {
+                    position: 'ne',
+                    backgroundColor: '#D2E8FF'
+                }
+            });
+        })(document.getElementById("recovered-case"));
+    </script>
+
+    <script  id="script-fatal">
+        (function basic_pie(container) {
+            var kelantan = dataset[0][0];
+            var sarawak = dataset[1][0];
+            var selangor = dataset[2][0];
+            var terengganu = dataset[3][0];
+            var melaka = dataset[4][0];
+
+            graph = Flotr.draw(container, [{
+                    data: kelantan[3],
+                    label: "Kelantan",
+                    color: "brown"
+                },
+                {
+                    data: sarawak[3],
+                    label: "Sarawak",
+                    color: "#4169e1", // royalblue
+                },
+                {
+                    data: selangor[3],
+                    label: "Selangor",
+                    color: "lightgreen"
+                },
+                {
+                    data: terengganu[3],
+                    label: "Terengganu",
+                    color: "magenta"
+                }, {
+                    data: melaka[3],
+                    label: "Melaka",
+                    color: "green"
+                },
+            ], {
+                title: "Fatal Cases",
+                grid: {
+                    verticalLines: false,
+                    horizontalLines: false
+                },
+                xaxis: {
+                    showLabels: false
+                },
+                yaxis: {
+                    showLabels: false
+                },
+                pie: {
+                    show: true
+                },
+                mouse: {
+                    track: true,
+                    sensibility: 10,
+                    trackDecimals: 0
+                },
+                legend: {
+                    position: 'ne',
+                    backgroundColor: '#D2E8FF'
+                }
+            });
+        })(document.getElementById("fatal-case"));
     </script>
 
     <div class="footer">
@@ -124,6 +312,7 @@
             <span>AttackOn © 2021</span>
         </div>
     </div>
+
 </body>
 
 </html>
