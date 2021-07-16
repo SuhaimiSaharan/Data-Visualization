@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+
 <html>
 
 <head>
@@ -47,9 +48,12 @@
 
     <div id='wrapper-scatter-chart'>
         <div id='active-case'></div>
+        <div id='confirmed-case'></div>
+        <div id='recovered-case'></div>
+        <div id='fatal-case'></div>
     </div>
 
-    <script>
+    <script  id="script-active">
         (function basic_scatter(container) {
             var kelantan = dataset[0][0];
             var sarawak = dataset[1][0];
@@ -108,6 +112,15 @@
                         min: 0,
                         max: 13000
                     },
+                    mouse: {
+                        track: true,
+                        sensibility: 10,
+                        trackDecimals: 0
+                    },
+                    grid: {
+                        horizontalLines: false,
+                        verticalLines: false
+                    },
                     legend: {
                         position: 'ne',
                         backgroundColor: '#D2E8FF'
@@ -116,6 +129,240 @@
             );
 
         })(document.getElementById("active-case"));
+    </script>
+
+    <script  id="script-confirmed">
+        (function basic_scatter(container) {
+            var kelantan = dataset[0][0];
+            var sarawak = dataset[1][0];
+            var selangor = dataset[2][0];
+            var terengganu = dataset[3][0];
+            var melaka = dataset[4][0];
+
+            // Plot the graph
+            graph = Flotr.draw(container,
+                [{
+                        data: kelantan[1],
+                        label: "Kelantan",
+                        color: "brown",
+                        points: {
+                            show: true
+                        }
+                    },
+                    {
+                        data: sarawak[1],
+                        label: "Sarawak",
+                        color: "#4169e1", // royalblue
+                        points: {
+                            show: true
+                        }
+                    },
+                    {
+                        data: selangor[1],
+                        label: "Selangor",
+                        color: "lightgreen",
+                        points: {
+                            show: true
+                        }
+                    },
+                    {
+                        data: terengganu[1],
+                        label: "Terengganu",
+                        color: "magenta",
+                        points: {
+                            show: true
+                        }
+                    }, {
+                        data: melaka[1],
+                        label: "Melaka",
+                        color: "green",
+                        points: {
+                            show: true
+                        }
+                    },
+                ], {
+                    title: "Confirmed Case",
+                    xaxis: {
+                        min: 0,
+                        max: 7
+                    },
+                    yaxis: {
+                        min: 0,
+                        max: 300000
+                    },
+                    mouse: {
+                        track: true,
+                        sensibility: 10,
+                        trackDecimals: 0
+                    },
+                    grid: {
+                        horizontalLines: false,
+                        verticalLines: false
+                    },
+                    legend: {
+                        position: 'ne',
+                        backgroundColor: '#D2E8FF'
+                    }
+                }
+            );
+
+        })(document.getElementById("confirmed-case"));
+    </script>
+
+    <script  id="script-recovered">
+        (function basic_scatter(container) {
+            var kelantan = dataset[0][0];
+            var sarawak = dataset[1][0];
+            var selangor = dataset[2][0];
+            var terengganu = dataset[3][0];
+            var melaka = dataset[4][0];
+
+            // Plot the graph
+            graph = Flotr.draw(container,
+                [{
+                        data: kelantan[2],
+                        label: "Kelantan",
+                        color: "brown",
+                        points: {
+                            show: true
+                        }
+                    },
+                    {
+                        data: sarawak[2],
+                        label: "Sarawak",
+                        color: "#4169e1", // royalblue
+                        points: {
+                            show: true
+                        }
+                    },
+                    {
+                        data: selangor[2],
+                        label: "Selangor",
+                        color: "lightgreen",
+                        points: {
+                            show: true
+                        }
+                    },
+                    {
+                        data: terengganu[2],
+                        label: "Terengganu",
+                        color: "magenta",
+                        points: {
+                            show: true
+                        }
+                    }, {
+                        data: melaka[2],
+                        label: "Melaka",
+                        color: "green",
+                        points: {
+                            show: true
+                        }
+                    },
+                ], {
+                    title: "Recovered Case",
+                    xaxis: {
+                        min: 0,
+                        max: 7
+                    },
+                    yaxis: {
+                        min: 0,
+                        max: 3000
+                    },
+                    mouse: {
+                        track: true,
+                        sensibility: 10,
+                        trackDecimals: 0
+                    },
+                    grid: {
+                        horizontalLines: false,
+                        verticalLines: false
+                    },
+                    legend: {
+                        position: 'ne',
+                        backgroundColor: '#D2E8FF'
+                    }
+                }
+            );
+
+        })(document.getElementById("recovered-case"));
+    </script>
+
+    <script  id="script-fatal">
+        (function basic_scatter(container) {
+            var kelantan = dataset[0][0];
+            var sarawak = dataset[1][0];
+            var selangor = dataset[2][0];
+            var terengganu = dataset[3][0];
+            var melaka = dataset[4][0];
+
+            // Plot the graph
+            graph = Flotr.draw(container,
+                [{
+                        data: kelantan[3],
+                        label: "Kelantan",
+                        color: "brown",
+                        points: {
+                            show: true
+                        }
+                    },
+                    {
+                        data: sarawak[3],
+                        label: "Sarawak",
+                        color: "#4169e1", // royalblue
+                        points: {
+                            show: true
+                        }
+                    },
+                    {
+                        data: selangor[3],
+                        label: "Selangor",
+                        color: "lightgreen",
+                        points: {
+                            show: true
+                        }
+                    },
+                    {
+                        data: terengganu[3],
+                        label: "Terengganu",
+                        color: "magenta",
+                        points: {
+                            show: true
+                        }
+                    }, {
+                        data: melaka[3],
+                        label: "Melaka",
+                        color: "green",
+                        points: {
+                            show: true
+                        }
+                    },
+                ], {
+                    title: "Fatal Case",
+                    xaxis: {
+                        min: 0,
+                        max: 7
+                    },
+                    yaxis: {
+                        min: 0,
+                        max: 65
+                    },
+                    mouse: {
+                        track: true,
+                        sensibility: 10,
+                        trackDecimals: 0
+                    },
+                    grid: {
+                        horizontalLines: false,
+                        verticalLines: false
+                    },
+                    legend: {
+                        position: 'ne',
+                        backgroundColor: '#D2E8FF'
+                    }
+                }
+            );
+
+        })(document.getElementById("fatal-case"));
     </script>
 
     <div class="footer">
