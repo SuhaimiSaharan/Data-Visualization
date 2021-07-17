@@ -4,8 +4,10 @@
 <head>
     <title>Bubble Chart</title>
     <link href="styles.css" rel="stylesheet">
-    <script src="js/data-bubble-chart.js"></script>
+    <script src="js/dataset-full.js"></script>
     <script src="js/flotr2.min.js"></script>
+    <!-- Add icon library -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <style>
 
     </style>
@@ -13,7 +15,7 @@
 
 <body>
     <div class="navbar">
-        <a href="#">Home</a>
+        <a href="test.html">Home</a>
         <a
             href="http://covid-19.moh.gov.my/terkini-negeri/2021/07/kemaskini-negeri-covid-19-di-malaysia-sehingga-09072021">Data
             Source</a>
@@ -45,59 +47,69 @@
     </div>
 
     <h1>Covid-19 Statistic in Malaysia</h1>
+
     <div id='Visualization'>
-        <div id='container' style="width:600px;height:500px;float:left;"></div>
+        <div id='active-case'></div>
     </div>
 
     <script>
         (function basic_bubble(container) {
-
-            var graph;
+            var kelantan = dataset[0][0];
+            var sarawak = dataset[1][0];
+            var selangor = dataset[2][0];
+            var terengganu = dataset[3][0];
+            var melaka = dataset[4][0];
 
             // Draw the graph
             graph = Flotr.draw(container, [{
-                    data: active,
-                    label: "Active",
-                    color: "orange"
+                    data: kelantan[0],
+                    label: "Kelantan",
+                    color: "brown"
                 },
                 {
-                    data: confirmed,
-                    label: "Confirmed",
-                    color: "blue"
+                    data: sarawak[0],
+                    label: "Sarawak",
+                    color: "#4169e1" // royalblue
                 },
                 {
-                    data: recovered,
-                    label: "Recovered",
+                    data: selangor[0],
+                    label: "Selangor",
+                    color: "lightgreen"
+                },
+                {
+                    data: terengganu[0],
+                    label: "Terengganu",
+                    color: "magenta"
+                }, {
+                    data: melaka[0],
+                    label: "Melaka",
                     color: "green"
-                },
-                {
-                    data: fatal,
-                    label: "Fatal",
-                    color: "red"
                 }
             ], {
-                title: "Basic bubble chart",
+                title: "Active Cases",
                 bubbles: {
                     show: true,
                     baseRadius: 5
                 },
                 grid: {
-                    backgroundImage: "asset/img/edit.jpg"
+                    horizontalLines: true,
+                    verticalLines: true
                 },
                 xaxis: {
-                    min: -2,
-                    max: 10
+                    min: -1,
+                    ticks: date,
+                    max: 7,
                 },
                 yaxis: {
-                    min: -4,
-                    max: 55
+                    min: -1000,
+                    max: 13000
                 },
                 legend: {
-                    position: 'ne',
+                    position: 'nw',
                     backgroundColor: '#D2E8FF' // Light blue
                 }
             });
-        })(document.getElementById("container"));
+        })(document.getElementById("active-case"));
     </script>
 
     <div class="footer">
