@@ -94,7 +94,8 @@ h1 {
 /* Line Charts */
 #wrapper-bar-chart,
 #wrapper-line-chart,
-#wrapper-radar-chart {
+#wrapper-radar-chart,
+#wrapper-bubble-chart {
     display: grid;
     grid-row-gap: 80px;
     grid-column: 2;
