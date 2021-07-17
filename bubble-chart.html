@@ -57,7 +57,7 @@
         </div>
     </div>
 
-    <script>
+    <script id="script-active">
         (function basic_bubble(container) {
             var kelantan = dataset[0][0];
             var sarawak = dataset[1][0];
@@ -108,6 +108,11 @@
                 yaxis: {
                     min: -1000,
                     max: 13000
+                },
+                mouse: {
+                    track: true,
+                    sensibility: 10,
+                    trackDecimals: 0
                 },
                 legend: {
                     position: 'nw',
@@ -166,8 +171,13 @@
                     max: 7,
                 },
                 yaxis: {
-                    min: -1000,
-                    max: 13000
+                    min: -10000,
+                    max: 301000
+                },
+                mouse: {
+                    track: true,
+                    sensibility: 10,
+                    trackDecimals: 0
                 },
                 legend: {
                     position: 'nw',
@@ -177,7 +187,7 @@
         })(document.getElementById("confirmed-case"));
     </script>
 
-    <script>
+    <script id="script-recovered">
         (function basic_bubble(container) {
             var kelantan = dataset[0][0];
             var sarawak = dataset[1][0];
@@ -226,8 +236,13 @@
                     max: 7,
                 },
                 yaxis: {
-                    min: -1000,
-                    max: 13000
+                    min: -300,
+                    max: 3500
+                },
+                mouse: {
+                    track: true,
+                    sensibility: 10,
+                    trackDecimals: 0
                 },
                 legend: {
                     position: 'nw',
@@ -237,7 +252,7 @@
         })(document.getElementById("recovered-case"));
     </script>
 
-    <script>
+    <script id="script-fatal">
         (function basic_bubble(container) {
             var kelantan = dataset[0][0];
             var sarawak = dataset[1][0];
@@ -286,8 +301,13 @@
                     max: 7,
                 },
                 yaxis: {
-                    min: -1000,
-                    max: 13000
+                    min: -1,
+                    max: 70
+                },
+                mouse: {
+                    track: true,
+                    sensibility: 10,
+                    trackDecimals: 0
                 },
                 legend: {
                     position: 'nw',
